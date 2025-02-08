@@ -1,0 +1,16 @@
+BG_CTX_LOOP
+2
+6
+DT_STN_synapse
+DT_GPe_synapse
+DT_STN_synapse
+DT_GPe_synapse
+DT_GPe_synapse
+DT_STN_synapse
+ML_CTX 40
+ML_STR 20
+DT_STN 10
+DT_GPe 10
+DT_GPi 10
+YG_TC 20
+BG_CTX_MAT.dat

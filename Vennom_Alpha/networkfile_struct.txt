@@ -1,0 +1,18 @@
+<String ID>
+<Class ID>
+<Number of neuron types>
+
+<outgoing synapse for neuron type 1>
+<outgoing synapse for neuron type 2>
+...
+<outgoing synapse for neuron type N>
+
+<neuron string id 1> <number of neurons>
+<neuron string id 2> <number of neurons>
+...
+<neuron string id N> <number of neurons>
+
+#ALL neurons are concatenated when labelled for connectivity matrix
+#Everything below is the incidence matrix MxM. Size should match data read above.
+
+<Connectivity Matrix>

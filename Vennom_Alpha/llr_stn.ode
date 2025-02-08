@@ -1,0 +1,157 @@
+# stn parameters
+par vl=-60,vna=55,vk=-80,thetam=30,sm=15
+par gl=2.25,gna=50,gk=40,tn=1,th=0.05
+par gahp=9,gca=0.5,vca=140,k1=15,eps=5e-05
+par kca=22.5,thetas=39,ss=2,xp=1,i=0,ssca=8
+par thetah=-39,sh=3.1,thetan=-32,sn=-8
+par taun0=1,taun1=100,thn=80,sigman=26
+par tauh0=1,tauh1=500,thh=57,sigmah=3,phi=5
+par thetat=-63,kt=-7.8,gt=0.5,phir=2
+par thetar=-67,kr=2,taur0=7.1,taur1=17.5,thr=-68,sigmar=2.2
+par alpha=5,beta=1,ab=-30,gsyn=1,vsyn=-100
+par rth=0.25,rsig=-0.07,i1=0,rho1=0.5,a1=0.9
+par Istn=10
+par peegamp=1,neegamp=0,samp2=0,freq2=0.09,samp1=0,freq1=0.15,amp=0
+par dir0=1,dir1=-1,dir2=1,dir3=-1,dir4=1,dir5=-1,dir6=1,dir7=-1,dir8=1,dir9=-1
+
+
+# gp parameters
+#par gnag=120,gkg=30,gahpg=30,gtg=0.5,gcag=0.1,glg=0.1
+#par vnag=55,vkg=-80,vcag=120,vlg=-55
+#par thetasg=-57,ksg=2,thetas1g=-35,ks1g=2
+#par thetarg=-70,krg=-2,taurg=30
+#par thetamg=-37,sigmamg=10
+#par thetang=-50,sigmang=14
+#par taun0g=0.05,taun1g=0.27,thng=-40,sng=-12
+#par thetahg=-58,sigmahg=-12
+#par tauh0g=0.05,tauh1g=0.27,thhg=-40,shg=-12
+#par k1g=30,kcag=3,epsg=0.0055
+#par phig=1,deltang=0.3,deltahg=0.1
+#par iapp=6,gsyng=0.4,vsyng=0,alphag=2,betag=0.14,abg=-20
+#par Igpe=0
+
+
+# stn functions
+sinf(v)=1./(1.+exp(-(v+thetas)/ss))
+sinfca(v)=1./(1.+exp(-(v+thetas)/ssca))
+minf(v)=1./(1.+exp(-(v+thetam)/sm))
+hinf(v)=1./(1.+exp((v-thetah)/sh))
+ninf(v)=1./(1.+exp((v-thetan)/sn))
+taun(v)=taun0+taun1/(1+exp((v+thn)/sigman))
+tauh(v)=tauh0+tauh1/(1+exp((v+thh)/sigmah))
+rinf(v)=1/(1+exp((v-thetar)/kr))
+taur(v)=taur0+taur1/(1+exp((v+thr)/sigmar))
+tinf(v)=1/(1+exp((v-thetat)/kt))
+rnew(r)=1/(1+exp((r-rth)/rsig))-1/(1+exp(-rth/rsig))
+
+# gp functions
+#sinfg(vg)=1/(1+exp(-(vg-thetasg)/ksg))
+#sinf1g(vg)=1/(1+exp(-(vg-thetas1g)/ks1g))
+#rinfg(vg)=1/(1+exp(-(vg-thetarg)/krg))
+#minfg(vg)=1./(1.+exp(-(vg-thetamg)/sigmamg))
+#ninfg(vg)=1./(1.+exp(-(vg-thetang)/sigmang))
+#taung(vg)=taun0g+taun1g/(1+exp(-(vg-thng)/sng))
+#hinfg(vg)=1./(1.+exp(-(vg-thetahg)/sigmahg))
+#tauhg(vg)=tauh0g+tauh1g/(1+exp(-(vg-thhg)/shg))
+#hv(v)=1./(1.+exp(-v/.001))
+
+
+# stn currents
+il(v)=gl*(v-vl)
+ina(v,h)=gna*(minf(v))^3*h*(v-vna)
+ik(v,n)=gk*n^4*(v-vk)
+iahp(v,ca)=gahp*(v-vk)*ca/(ca+k1)
+ica(v)=gca*((sinfca(v))^2)*(v-vca)
+it(v,r)=gt*(tinf(v)**3)*(rnew(r)^2)*(v-vca)
+
+###################################################################
+circular structure
+###################################################################
+# synaptic currents from GPE to STN
+
+#isyn0=gsyn*(sg9+sg0+sg1)*(v0-vsyn)
+#isyn[1..8]=gsyn*(sg[j-1]+sg[j]+sg[j+1])*(v[j]-vsyn)
+#isyn9=gsyn*(sg8+sg9+sg0)*(v9-vsyn)
+
+
+# gp currents
+#itg(vg,rg)=gtg*(sinfg(vg)^3)*rg*(vg-vcag)
+#inag(vg,hg)=gnag*(minfg(vg)^3)*hg*(vg-vnag)
+#ikg(vg,ng)=gkg*(ng^4)*(vg-vkg)
+#iahpg(vg,cag)=gahpg*(vg-vkg)*cag/(cag+k1g)
+#icag(vg)=gcag*((sinf1g(vg))^2)*(vg-vcag)
+#ilg(vg)=glg*(vg-vlg)
+
+
+###########################################
+# synaptic currents from STN to GPE
+#isyng[0..9]=gsyng*s[j]*(vg[j]-vsyng)
+
+% noise
+#par noiseamp=0
+#wiener nove[0..9]
+
+
+# stn initial conditions
+#init V1=-78,V2=-55,H1=0.2,H2=0.08
+#init N1=0.08,N2=0.4,R1=0.67,R2=0.38
+#init CA1=0.44,CA2=0.47,S1=0.001,S2=0.3
+
+init V0=0, H0=0
+init N0=0, R0=0
+init CA0=0
+
+
+# gp initial conditions
+#init VG1=-16,VG2=-69,NG1=0.84,NG2=0.2
+#init HG1=0.1,HG2=0.7,RG1=0.6,RG2=0.47
+#init CAG1=0.068,CAG2=0.06,SG1=0.96,SG2=0.025
+
+
+# stn equations
+#v[0]'=-(il(v[0])+ina(v[0],h[0])+ik(v[0],n[0])+iahp(v[0],ca[0])+ica(v[0])+it(v[0],r[0]))-isyn[0]+Istn + samp1*dir[0]*sin(freq1*(t) + noiseamp*nove[0]) + 0.3*amp*((-1/9)+(10/9)*heav(mod(t,10)-9)) + 0*heav(5-mod(t,10))
+#v[1]'=-(il(v[1])+ina(v[1],h[1])+ik(v[1],n[1])+iahp(v[1],ca[1])+ica(v[1])+it(v[1],r[1]))-isyn[1]+Istn + samp1*dir[1]*sin(freq1*(t) + noiseamp*nove[1]) + 0.7*amp*((-1/9)+(10/9)*heav(mod(t,10)-9)) + 0*heav(5-mod(t,10))
+#v[2]'=-(il(v[2])+ina(v[2],h[2])+ik(v[2],n[2])+iahp(v[2],ca[2])+ica(v[2])+it(v[2],r[2]))-isyn[2]+Istn + samp1*dir[2]*sin(freq1*(t) + noiseamp*nove[2]) + amp*((-1/9)+(10/9)*heav(mod(t,10)-9)) + 0*heav(5-mod(t,10))
+#v[3]'=-(il(v[3])+ina(v[3],h[3])+ik(v[3],n[3])+iahp(v[3],ca[3])+ica(v[3])+it(v[3],r[3]))-isyn[3]+Istn + samp1*dir[3]*sin(freq1*(t) + noiseamp*nove[3]) + 0.7*amp*((-1/9)+(10/9)*heav(mod(t,10)-9)) + 0*heav(5-mod(t,10))
+#v[4]'=-(il(v[4])+ina(v[4],h[4])+ik(v[4],n[4])+iahp(v[4],ca[4])+ica(v[4])+it(v[4],r[4]))-isyn[4]+Istn + samp1*dir[4]*sin(freq1*(t) + noiseamp*nove[4]) + 0.3*amp*((-1/9)+(10/9)*heav(mod(t,10)-9)) + 0*heav(5-mod(t,10))
+#v[0..9]'=-(il(v[j])+ina(v[j],h[j])+ik(v[j],n[j])+iahp(v[j],ca[j])+ica(v[j])+it(v[j],r[j]))-isyn[j]+Istn + samp1*dir[j]*sin(freq1*(t) + noiseamp*nove[j]) + amp*(-1+2*heav(mod(t,10)-8))*heav(9-mod(t,10))
+
+v[0]'=-(il(v[0])+ina(v[0],h[0])+ik(v[0],n[0])+iahp(v[0],ca[0])+ica(v[0])+it(v[0],r[0]))+Istn
+h[0]'=phi*( hinf(v[0])-h[0] )/tauh(v[0])
+n[0]'=phi*( ninf(v[0])-n[0] )/taun(v[0])
+r[0]'=phir*(rinf(v[0])-r[0] )/taur(v[0])
+ca[0]'=eps*(-ica(v[0])-it(v[0],r[0]) - kca*ca[0])
+
+
+#h[0..9]'=phi*( hinf(v[j])-h[j] )/tauh(v[j])
+#n[0..9]'=phi*( ninf(v[j])-n[j] )/taun(v[j])
+#r[0..9]'=phir*(rinf(v[j])-r[j])/taur(v[j])
+#ca[0..9]'=eps*(-ica(v[j])-it(v[j],r[j]) - kca*ca[j])
+#s[0..9]'=alpha*(1-s[j])*sinf(v[j]+ab)-beta*s[j]
+
+
+# gp equations
+#vg[0..9]'= -(itg(vg[j],rg[j])+inag(vg[j],hg[j])+ikg(vg[j],ng[j])+iahpg(vg[j],cag[j])+icag(vg[j])+ilg(vg[j]))+iapp-isyng[j]+Igpe
+#ng[0..9]'= deltang*(ninfg(vg[j])-ng[j])/taung(vg[j])
+#hg[0..9]'= deltahg*(hinfg(vg[j])-hg[j])/tauhg(vg[j])
+#rg[0..9]'= phig*(rinfg(vg[j])-rg[j])/taurg
+#cag[0..9]'=epsg*(-icag(vg[j])-itg(vg[j],rg[j]) - kcag*cag[j])
+#sg[0..9]'=alphag*(1-sg[j])*sinfg(vg[j]+abg)-betag*sg[j]
+
+
+# LFP
+#par weig=0.26
+
+#aux stnlfp0 = isyn0 + weig*(isyn9 + isyn1)
+#aux stnlfp[1..8] = isyn[j] + weig*(isyn[j-1]+isyn[j+1])
+#aux stnlfp9 = isyn9 + weig*(isyn8 + isyn0)
+
+#only t,r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,stnlfp0,stnlfp1,stnlfp2,stnlfp3,stnlfp4,stnlfp5,stnlfp6,stnlfp7,stnlfp8,stnlfp9
+
+only t,v0,r0
+
+@ dt=.05,total=5999,njmp=1,meth=qualrk,xp=t,yp=v1,xlo=0,xhi=1000,ylo=-80,yhi=20.,bound=1000001,maxstor=1000001
+
+
+done
+ 

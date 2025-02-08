@@ -1,0 +1,14 @@
+<string ID>
+#<Type System/SubSystem 1/0>
+<Class ID>
+<Integrate 0/1>
+#<Compatibility Class IDs>
+<Number of System States> 
+#<Number of Parameters>
+<max Conductance value> <Reversal voltage value>
+<State powers[1...N]>
+<First state alpha rate func params>
+<First state Beta rate func params>
+...
+<Nth state alpha rate func params>
+<Nth state Beta rate func params>

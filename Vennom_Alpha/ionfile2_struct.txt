@@ -1,0 +1,25 @@
+<string ID>
+
+#<Type System/SubSystem 1/0>
+
+<Class ID>
+#<Compatibility Class IDs>
+
+<doIntegrate 0/1>
+
+<Number of System States>
+
+<Integrate type 0/1/2 [1...N]> 0 = Don't integrate (use state=1), 1 = Integrate as usual, 2 = Don't integrate (use inf(V) form for state), 3 Integrate with another state instead of Voltage >
+
+#<Integrate with V or x 0/1 [1...N>
+#<Number of Parameters>
+
+<max Conductance value> <Reversal voltage value>
+
+<State powers[1...N]>
+
+<First state phi+inf(V) func params>
+<First state tau(V) rate func params>
+...
+<Nth state phi+inf(V) func params>
+<Nth state tau(V) func params>

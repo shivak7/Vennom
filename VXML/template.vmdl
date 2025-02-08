@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<vsys type="hh_ion">  
+
+<sid>Template_Na_ion</sid> 
+<cid>5</cid>
+<parameter name="gNa">0.5</parameter>	
+<parameter name="VNa">55</parameter>
+<state name="m">
+	<integrate_flag>2</integrate_flag>
+	<parameter name="power">3</parameter>	
+	<parameter name="thetam">0.5</parameter>		
+</state>
+<state name="h">
+	<integrate_flag>1</integrate_flag>
+	<parameter name="power">1</parameter>	
+	<parameter name="thetah">0.5</parameter>		
+</state>
+
+<dependency />
+
+</vsys>

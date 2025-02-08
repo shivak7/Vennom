@@ -1,0 +1,19 @@
+TODO/Cleanups
+Key:	Sh - Shiva
+	Sr - Sri
+
+
+1.) Fix virtual function Init to handle string+vector<double> as arguments -Sh (DONE)
+2.) Complete the unique system map to grow Main_Sys accordingly	-Sh (DONE)
+3.) Complete File/Folder Traversal for registration process with VNNM_Manager -Sh (partially done)
+4.) Make adaptive timestep integration methods feasible with VNNM_Systems -(DONE)
+5.) Make Create_neuron more generic (Right now it's specific to hhneuron) -Sh 
+6.) XML-ify all datafiles and formats - Sr
+7.) Incorporate other forms of ion channels (non-alpha/beta based) - Sh (DONE)
+8.) Investigate slight discrepancy between outputs of old vennom and new vennom code for same inputs - (Verified against XPP)
+9.) Investigate slightly higher delay in execution for new vennom code compared to the old vennom code - (Due to virtual fns)
+10.) Implement a set of auxillary functions/systems for custom current addition etc. (?)
+11.) Implement synapse systems. (DONE)
+12.) Implement Connectivity methods for large scale networks. (Partially done)
+ 
+

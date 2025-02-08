@@ -1,0 +1,14 @@
+<string ID>
+<Class ID>
+<Integrate 0/1>
+<Number of states>
+<Number of ions/sub-systems>
+<ion1 string>
+<ion2 string>
+.
+.
+.
+<ionN string>
+#<Compatibility Class IDs>
+#<Number of Parameters>
+<Capacitance>

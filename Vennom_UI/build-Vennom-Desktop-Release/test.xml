@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vsys type="hh_ion">
+    <sid></sid>
+    <cid>7</cid>
+    <state name="">
+        <IntegrationFlag>2</IntegrationFlag>
+        <parameter name="">
+            <value></value>
+        </parameter>
+        <parameter name="">
+            <value></value>
+        </parameter>
+    </state>
+</vsys>

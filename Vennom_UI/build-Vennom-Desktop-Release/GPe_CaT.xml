@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vsys type="hh_ion">
+    <sid>DT_GPe_CaT</sid>
+    <cid>5</cid>
+    <state name="r">
+        <IntegrationFlag>1</IntegrationFlag>
+        <parameter name="Power">
+            <value>1</value>
+        </parameter>
+        <parameter name="phi">
+            <value>1</value>
+        </parameter>
+        <parameter name="theta_inf">
+            <value>-70</value>
+        </parameter>
+        <parameter name="sigma_inf">
+            <value>-2</value>
+        </parameter>
+        <parameter name="tau_0">
+            <value>30</value>
+        </parameter>
+        <parameter name="tau_1">
+            <value>0</value>
+        </parameter>
+        <parameter name="">
+            <value>0</value>
+        </parameter>
+        <parameter name="">
+            <value>1</value>
+        </parameter>
+        <parameter name="">
+            <value>1</value>
+        </parameter>
+        <parameter name="">
+            <value>1</value>
+        </parameter>
+    </state>
+    <parameter name="gT">
+        <value>0.5</value>
+    </parameter>
+    <parameter name="VCa">
+        <value>120</value>
+    </parameter>
+    <state name="b">
+        <IntegrationFlag>2</IntegrationFlag>
+        <parameter name="Power">
+            <value>3</value>
+        </parameter>
+        <parameter name="">
+            <value>-57</value>
+        </parameter>
+        <parameter name="">
+            <value>2</value>
+        </parameter>
+        <parameter name="">
+            <value>0</value>
+        </parameter>
+        <parameter name="">
+            <value>0</value>
+        </parameter>
+        <parameter name="">
+            <value>0</value>
+        </parameter>
+        <parameter name="">
+            <value>0</value>
+        </parameter>
+        <parameter name="">
+            <value>1</value>
+        </parameter>
+        <parameter name="">
+            <value>1</value>
+        </parameter>
+        <parameter name="Phi">
+            <value>1</value>
+        </parameter>
+    </state>
+</vsys>
